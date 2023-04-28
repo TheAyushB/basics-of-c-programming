@@ -12,7 +12,7 @@ struct list {
     NODE *tail;                  //address of tail node
 };
 
-NODE *createNode(int value) { //
+NODE *createNode(int value) { 
     NODE *newNode = (NODE *)malloc(sizeof(NODE));   //new node (type casting)
     if (!newNode)                    
         return NULL;                                 //out of memory 
@@ -42,6 +42,9 @@ void printList(LIST *list) {
 }
 
 void addNode(LIST *list, int value) {
+
+    void(*function_pointer)(int);
+    function_pointer=nodeAddedCallback;
     NODE *newNode = createNode(value);
     if (!newNode)           // out of memory 
         return;
@@ -49,7 +52,7 @@ void addNode(LIST *list, int value) {
     if (!list->head) {          
         list->head = newNode;           
         list->tail = newNode;
-        return;
+        return function_pointer(value);
     }
     
     NODE *current = list->head;             
@@ -59,7 +62,7 @@ void addNode(LIST *list, int value) {
     newNode->next = current->next;
     current->next = newNode;
     list->tail = newNode;
-    return;
+    return function_pointer(value);
 }
 
 void deleteNode(LIST *list, int value) {
@@ -104,4 +107,8 @@ void reverseList(LIST *list) {
     list->head = prev;
     list->tail = current;
     return;
+}
+
+void nodeAddedCallback(int value) {
+    printf("New node added with value: %d\n", value);
 }
