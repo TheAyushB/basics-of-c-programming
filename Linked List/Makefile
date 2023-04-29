@@ -1,4 +1,4 @@
-TARGET: deb 	//if you don't give a TARGET then not all the commands will run 
+TARGET: deb 	
 
 linear_list.o: linear_list.c
 	gcc -c linear_list.c -o linear_list.o

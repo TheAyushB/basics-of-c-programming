@@ -1,14 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "linear_list.h"
-
+#include "linear_list.h" 
 
 int main()
 {
     LIST *linkedList = createList();
-
-    addNode(linkedList, 56);
-    printList(linkedList);
-
+    addNode(linkedList,56);
+    addNode(linkedList,79);
     return 0;
 }
