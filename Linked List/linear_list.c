@@ -3,7 +3,6 @@
 #include "linear_list.h"
 #include <malloc.h>
 
-
 struct node
 {                      // designing node for linked list using structure
     int value;         // value part of the node

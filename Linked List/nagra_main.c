@@ -2,7 +2,15 @@
 #include <stdlib.h>
 #include <malloc.h>
 #include "linear_list.h"
+#include "config.h"
 
+#if defined(IMPLEMENT_STACK)
+#include "stack.h"
+#elif defined(IMPLEMENT_QUEUE)
+#include "queue.h"
+#else(IMPLEMENT_LINEAR_LIST)
+
+#endif
 int main()
 {
     LIST *linkedList = createList();
@@ -14,6 +22,6 @@ int main()
     printList(linkedList);
     reverseList(linkedList);
     printList(linkedList);
-    
+
     return 0;
 }
