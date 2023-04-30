@@ -1,19 +1,20 @@
-TARGET: deb 	
+CC = gcc
+# CFLAGS = -Wall -Werror -std=c99
 
-linear_list.o: linear_list.c
-	gcc -c linear_list.c -o linear_list.o
+EXECUTABLE = program
 
-nagra_main.o: nagra_main.c
-	gcc -c nagra_main.c -o nagra_main.o
+SOURCES = nagra_main.c linear_list.c
+HEADERS = linear_list.h
+OBJECTS = $(SOURCES:.c=.o)
 
-libll.a: linear_list.o
-	ar rs libll.a linear_list.o
+all: $(EXECUTABLE)
 
-deb: nagra_main.o libll.a
-	gcc -g nagra_main.o -o deb -L . libll.a -lm
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $@
+
+$(OBJECTS): $(SOURCES) $(HEADERS)
+	$(CC) $(CFLAGS) -c $(SOURCES)
 
 clean:
-	rm nagra_main.o 
-	rm linear_list.o
-	rm deb
-	rm libll.a
+	rm -f $(EXECUTABLE) $(OBJECTS)
+
