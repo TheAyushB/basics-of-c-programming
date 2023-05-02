@@ -142,10 +142,10 @@ void *myMalloc(size_t size)
     if (ptr != NULL)
     {
         totalAllocated += sizeof(*ptr);
-        printf("Allocated %zu bytes of memory at %p\n", sizeof(*ptr), ptr);
+        printf("Allocated %zu bytes of memory at %p\n\n", sizeof(*ptr), ptr);
     }
 
-    printf("Total memory allocated so far: %zu bytes\n", totalAllocated);
+    printf("Total memory allocated so far: %zu bytes\n\n", totalAllocated);
 
     return ptr;
 }
@@ -157,8 +157,8 @@ void myFree(void *ptr)
     size_t size = sizeof(*ptr);
     totalFreed += size;
 
-    printf("Freeing %zu bytes of memory at %p\n", size, ptr);
+    printf("Freeing %zu bytes of memory at %p\n\n", size, ptr);
     free(ptr);
 
-    printf("Total memory freed so far: %zu bytes\n", totalFreed);
+    printf("Total memory freed so far: %zu bytes\n\n", totalFreed);
 }

@@ -7,7 +7,11 @@ typedef struct StackNode {
 } StackNode;
 
 void push(StackNode** top, int data);
-int pop(StackNode** top);
+void pop(StackNode** top);
 void printStack(StackNode* top);
+
+void *myMalloc(size_t size);
+
+void myFree(void *ptr);
 
 #endif
