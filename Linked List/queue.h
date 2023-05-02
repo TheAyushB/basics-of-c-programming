@@ -12,7 +12,11 @@ typedef struct Queue {
 } Queue;
 
 void enqueue(Queue* q, int data);
-int dequeue(Queue* q);
+void dequeue(Queue* q);
 void printQueue(Queue* q);
+
+void *myMalloc(size_t size);
+
+void myFree(void *ptr);
 
 #endif
