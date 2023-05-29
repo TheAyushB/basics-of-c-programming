@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "linear_list.h"
 #include <malloc.h>
+// #include "config.h"
+#include "../bin/linear_list.h"
 
 struct node
 {                      // designing node for linked list using structure

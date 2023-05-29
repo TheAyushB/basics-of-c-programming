@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
-#include "linear_list.h"
-#include "config.h"
-#include "stack.h"
-#include "queue.h"
+// #include "config.h"
+#include "../bin/linear_list.h"
+#include "../bin/stack.h"
+#include "../bin/queue.h"
 
 #if defined(STACK)
-    #include "stack.h"
+    #include "bin/stack.h"
 #elif defined(QUEUE)
-    #include "queue.h"
+    #include "bin/queue.h"
 #elif defined(LINEAR_LIST)
-    #include "linear_list.h"
+    #include "bin/linear_list.h"
 #endif
 
 int main()
@@ -34,15 +34,15 @@ int main()
     dequeue(queue);
     printQueue(queue);
 
-    StackNode *stack;
-    push(stack, 45);
-    push(stack, 56);
-    printStack(stack);
-    push(stack, 48);
-    push(stack, 95);
-    printStack(stack);
-    pop(stack);
-    printStack(stack);
+    // StackNode *stack;
+    // push(stack, 45);
+    // push(stack, 56);
+    // printStack(stack);
+    // push(stack, 48);
+    // push(stack, 95);
+    // printStack(stack);
+    // pop(stack);
+    // printStack(stack);
 
     return 0;
 }

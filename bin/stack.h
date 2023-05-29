@@ -10,8 +10,8 @@ void push(StackNode** top, int data);
 void pop(StackNode** top);
 void printStack(StackNode* top);
 
-void *myMalloc(size_t size);
+void *mySMalloc(size_t size);
 
-void myFree(void *ptr);
+void mySFree(void *ptr);
 
 #endif
