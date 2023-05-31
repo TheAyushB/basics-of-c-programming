@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include "queue.h"
 
+
 void enqueue(Queue* q, int data) {
-    QueueNode* newNode = (QueueNode*)myMalloc(sizeof(QueueNode));
+    QueueNode* newNode = (QueueNode*)myQMalloc(sizeof(QueueNode));
     if (newNode == NULL) {
         printf("Error: Unable to allocate memory.\n");
         return;
@@ -30,7 +31,7 @@ void dequeue(Queue* q) {
     if (q->front == NULL) {
         q->rear = NULL;
     }
-    myFree(temp);
+    myQFree(temp);
     printf("Deleted data: %d", data);
     return;
 }
@@ -45,9 +46,11 @@ void printQueue(Queue* q) {
     printf("\n");
 }
 
-size_t totalAllocated = 0;
+// Wrapper function for malloc and free functions
 
-void *myMalloc(size_t size)
+size_t totalQAllocated = 0;
+
+void *myQMalloc(size_t size)
 {
     // Call the standard malloc function to allocate memory
     void *ptr = malloc(size);
@@ -55,25 +58,23 @@ void *myMalloc(size_t size)
     // If the allocation was successful, add the size of the memory block to the total_allocated variable
     if (ptr != NULL)
     {
-        totalAllocated += sizeof(*ptr);
-        printf("Allocated %zu bytes of memory at %p\n\n", sizeof(*ptr), ptr);
+        totalQAllocated += sizeof(*ptr);
     }
 
-    printf("Total memory allocated so far: %zu bytes\n\n", totalAllocated);
+    printf("Memory allocated so far: %zu bytes\n\n", totalQAllocated);
 
     return ptr;
 }
 
-size_t totalFreed = 0;
+size_t totalQFreed = 0;
 
-void myFree(void *ptr)
+void myQFree(void *ptr)
 {
     // Add the size of the memory being freed to the total_freed variable
     size_t size = sizeof(*ptr);
-    totalFreed += size;
+    totalQFreed += size;
 
-    printf("Freeing %zu bytes of memory at %p\n\n", size, ptr);
     free(ptr);
 
-    printf("Total memory freed so far: %zu bytes\n\n", totalFreed);
+    printf("Total memory freed so far: %zu bytes\n\n", totalQFreed);
 }

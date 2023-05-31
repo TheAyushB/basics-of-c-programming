@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include "stack.h"
 
+
 void push(StackNode** top, int data) {
-    StackNode* newNode = (StackNode*)myMalloc(sizeof(StackNode));
+    StackNode* newNode = (StackNode*)mySMalloc(sizeof(StackNode));
     if (newNode == NULL) {
         printf("Error: Unable to allocate memory.\n");
         return;
@@ -21,8 +22,8 @@ void pop(StackNode** top) {
     int data = (*top)->data;
     StackNode* temp = *top;
     *top = (*top)->next;
-    myFree(temp);
-    printf("Data: %d", data);
+    mySFree(temp);
+    printf("Data popped is: %d\n", data);
     return;
 }
 
@@ -36,9 +37,9 @@ void printStack(StackNode* top) {
 }
 
 
-size_t totalAllocated = 0;
+size_t totalSAllocated = 0;
 
-void *myMalloc(size_t size)
+void *mySMalloc(size_t size)
 {
     // Call the standard malloc function to allocate memory
     void *ptr = malloc(size);
@@ -46,25 +47,23 @@ void *myMalloc(size_t size)
     // If the allocation was successful, add the size of the memory block to the total_allocated variable
     if (ptr != NULL)
     {
-        totalAllocated += sizeof(*ptr);
-        printf("Allocated %zu bytes of memory at %p\n\n", sizeof(*ptr), ptr);
+        totalSAllocated += sizeof(*ptr);
     }
 
-    printf("Total memory allocated so far: %zu bytes\n\n", totalAllocated);
+    printf("Total memory allocated so far: %zu bytes\n\n", totalSAllocated);
 
     return ptr;
 }
 
-size_t totalFreed = 0;
+size_t totalSFreed = 0;
 
-void myFree(void *ptr)
+void mySFree(void *ptr)
 {
     // Add the size of the memory being freed to the total_freed variable
     size_t size = sizeof(*ptr);
-    totalFreed += size;
+    totalSFreed += size;
 
-    printf("Freeing %zu bytes of memory at %p\n\n", size, ptr);
     free(ptr);
 
-    printf("Total memory freed so far: %zu bytes\n\n", totalFreed);
+    printf("Total memory freed so far: %zu bytes\n\n", totalSFreed);
 }

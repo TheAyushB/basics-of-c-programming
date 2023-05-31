@@ -15,8 +15,8 @@ void enqueue(Queue* q, int data);
 void dequeue(Queue* q);
 void printQueue(Queue* q);
 
-void *myMalloc(size_t size);
+void *myQMalloc(size_t size);
 
-void myFree(void *ptr);
+void myQFree(void *ptr);
 
 #endif
