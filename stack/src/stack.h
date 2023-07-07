@@ -1,14 +1,15 @@
 #ifndef STACK_H
 #define STACK_H
 
-typedef struct StackNode {
+typedef struct StackNode
+{
     int data;
-    struct StackNode* next;
+    struct StackNode *next;
 } StackNode;
 
-void push(StackNode** top, int data);
-void pop(StackNode** top);
-void printStack(StackNode* top);
+void push(StackNode **top, int data);
+void pop(StackNode **top);
+void printStack(StackNode *top);
 
 void *mySMalloc(size_t size);
 

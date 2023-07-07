@@ -20,7 +20,7 @@ libll.a: linear_list/src/linear_list.o queue/src/queue.o stack/src/stack.o
 		*) echo "Invalid choice." ;; \
 	esac
 
-# This part is not working--------
+# This part is working--------
 deb: nagra_main.o libll.a queue/src/queue.o stack/src/stack.o
 	gcc -g nagra_main.o -o deb -L . linear_list/lib/libll.a queue/src/queue.o stack/src/stack.o -lm
 

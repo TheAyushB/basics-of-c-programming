@@ -2,10 +2,11 @@
 #include <stdlib.h>
 #include "stack.h"
 
-
-void push(StackNode** top, int data) {
-    StackNode* newNode = (StackNode*)mySMalloc(sizeof(StackNode));
-    if (newNode == NULL) {
+void push(StackNode **top, int data)
+{
+    StackNode *newNode = (StackNode *)mySMalloc(sizeof(StackNode));
+    if (newNode == NULL)
+    {
         printf("Error: Unable to allocate memory.\n");
         return;
     }
@@ -14,28 +15,31 @@ void push(StackNode** top, int data) {
     *top = newNode;
 }
 
-void pop(StackNode** top) {
-    if (*top == NULL) {
+void pop(StackNode **top)
+{
+    if (*top == NULL)
+    {
         printf("Error: Stack is empty.\n");
         return;
     }
     int data = (*top)->data;
-    StackNode* temp = *top;
+    StackNode *temp = *top;
     *top = (*top)->next;
     mySFree(temp);
     printf("Data popped is: %d\n", data);
     return;
 }
 
-void printStack(StackNode* top) {
+void printStack(StackNode *top)
+{
     printf("Stack: ");
-    while (top != NULL) {
+    while (top != NULL)
+    {
         printf("%d ", top->data);
         top = top->next;
     }
     printf("\n");
 }
-
 
 size_t totalSAllocated = 0;
 

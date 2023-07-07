@@ -1,14 +1,12 @@
-# Mini_Project_C
+# Standard Project Blueprint in C programming
+### _The Fundamental Project Structure, System Build and Basic Coding_
 
-Sample project:  Develop a Linked list using C or C++
+This project contains a collection of basic C programs. The programs are designed to teach the fundamentals of C programming, such as variables, data types, operators, control flow statements, functions, static and dynamic libraries, Makefiles, Data Structures, and more.
 
-Objective     :  Understand the project structure, build system, and basic coding.
+## Features
 
-Requirements  :
-
-# The linked list should be able to build a list with LINEAR or QUEUE, STACK formats.
-
-# Operations allowed in LINEAR list (linear_list.c, linear_list.h)
+- Build a list with LINEAR or QUEUE, STACK formats
+- Operations allowed in LINEAR list (linear_list.c, linear_list.h)
 
       -Add node
 
@@ -17,42 +15,56 @@ Requirements  :
       -Delete node
 
       -Reverse list
-
-# Operations allowed in QUEUE list (queue_list.c, queue_list.h)
-
-      -Push node
-
-      -Pop node
-
-      -Print node data
-
-# Operations allowed in STACK list (stack_list.c, stack_list.h)
+- Operations allowed in QUEUE list (queue_list.c, queue_list.h)
 
       -Push node
 
       -Pop node
 
       -Print node data
+- Operations allowed in QUEUE list (queue_list.c, queue_list.h)
 
-# Create 3 .c file, 3 .h file and 1 main file (nagra_list.c)  -> all the file names mentioned above.
+      -Push node
 
-# Compile time option (Macro) must be defined to compile the list either QUEUE or STACK or LINEAR (Default LINEAR list is created)
+      -Pop node
 
-# The 3 .c and .h file should be built as static/dynamic library (nagra_list.a / nagra_list.so) using make file options.
+      -Print node data
+- Compile time option (Macro) defined to compile the list either QUEUE or STACK or LINEAR
+- Wrapper functions (custom memory allocation)
+- All .c and .h files uses static/dynamic library (list.a/list.so) adn perform operation
+- Callback (function pointer) to notify empty list
+- Print memory statistics
 
-# The Main c file (nagra_list.c) should use the static/dynamic library (nagra_list.a / nagra_list.so) and perform the linked list operations mentioned.
+## Installation and Usage
 
-# Use custom memory allocation method (wrapper function for malloc)
+> For Linux System
+1. Clone the repository
+```
+git clone https://github.com/TheAyushB/basics-of-c-programming.git
+```
+2. In terminal
+```
+make
+```
+`make` - is a build automation tool that is used to compile and build the project's source code into an executable or library.
 
-# Register a callback (function pointer) to notify empty list  - Call this callback when, all the nodes got deleted , and print status inside the callback.
+![select choice](Choice.png)
+```
+./deb
+```
+`./deb` - Execute the selected part of the program.
 
-# On termination of the program, print the memory statistics
+: the output is diplayed in the console
+3. To clean or remove any generated files or artifacts created during the build process
+```
+make clean
+```
 
-         - Total memory allocated in bytes
+> For Windows
 
-         - Number of times malloc called
+ Following changes are required in the current program:
+~ 1.Replace all occurances of `deb` in the `Makefile` to `exe`.
+~ 2.Instead of `make` use `MinGW32-make`.
+~ 3.Instead of `./deb` use `./exe`.
+~ 4.For removing generated build files use `MinGW32-make clean`
 
-         - Number of times free called
-
-
-- To run on Windows platform you need to change the makefile (change deb to exe wherever found)         
