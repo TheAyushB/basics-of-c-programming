@@ -1,7 +1,7 @@
 # Standard Project Blueprint in C programming
 ### _The Fundamental Project Structure, System Build and Basic Coding_
 
-This project contains a collection of basic C programs. The programs are designed to teach the fundamentals of C programming, such as variables, data types, operators, control flow statements, functions, static and dynamic libraries, Makefiles, Data Structures, and more.
+This project contains a collection of basic C programs. The programs are designed to teach the fundamentals of C programming, such as variables, data types, operators, control flow statements, functions, static and dynamic libraries, Makefile, Data Structures, and more.
 
 ## Features
 
@@ -54,7 +54,7 @@ make
 ```
 `./deb` - Execute the selected part of the program.
 
-: the output is diplayed in the console
+: the output is displayed in the console
 3. To clean or remove any generated files or artifacts created during the build process
 ```
 make clean
@@ -63,8 +63,8 @@ make clean
 > For Windows
 
  Following changes are required in the current program:
-~ 1.Replace all occurances of `deb` in the `Makefile` to `exe`.
-~ 2.Instead of `make` use `MinGW32-make`.
-~ 3.Instead of `./deb` use `./exe`.
-~ 4.For removing generated build files use `MinGW32-make clean`
-
+ 
+1. Replace all occurrences of `deb` in the `Makefile` to `exe`.
+2. Instead of `make` use `MinGW32-make`.
+3. Instead of `./deb` use `./exe`.
+4. For removing generated build files use `MinGW32-make clean`.
